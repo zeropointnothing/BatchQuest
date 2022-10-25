@@ -1,0 +1,99 @@
+@echo off - This command is probably one you've seen plenty before. Its function is to inform the Batch that you don't want it to display the file directory and the command being used. It is used like this in most cases:
+
+@echo off
+
+[rest of code]
+
+-
+
+echo - This command does something a little different to the one above. Instead of toggling something on and off, it outputs a message into the cmd (command) prompt window your Batch is opperating in. It is used like such:
+
+1. (outputs a message) echo Hello World!
+console appearance:
+Hello world!
+
+2. (simply makes an empty space. Useful for seperation) echo.
+console appearance:
+
+
+-
+
+: - This is a two-part command that we'll just call checkpoints for now. By putting : followed by any word, you can easily go back to that point. Used like so:
+
+:example
+
+-
+
+goto - This is the second piece of this command. goto followed by the name of a checkpoint will make the code jump to a certain point. This can be used to skip over code, or go back to repeat an action. It is used like this:
+
+goto example
+-The code will now jump to wherever :example is located. Note, (and this one is obvious) make sure to give EVERY checkpoint a unique name or this will not work.
+
+-
+
+set (/p and /a)var= - This is a variable command. /p will pause the code and wait for user input. Whatever that input is, will be set as the variable. By adding text after the =, you can add a message to be displayed. It is used like so:
+
+set /p ans="Would you like to continue? (y/n)" (the code will now stop here and wait for a user's input. When an input is recieved, it will set the variable 'ans' to that answer and move on with the code.
+
+
+/a - The /a paramater sets the variable to a numerical value. This will not wait for user input, and just set whatever is followed by the set command. It is used like so:
+
+set /a ans=%RANDOM% %%5 (Note: This will calculate a random number with the max value of 5 (which will end up being 4) and set the variable to that. And remember, 'ans
+ can be replaced with whatever you wish.)
+
+
+set - Without either /a or /p, the Batch will simply set the variable to whatever is followed by the command. This can be used with another variable that has already be determined. It is used like so:
+
+set out=%ans% (Note: the %ans% will be replaced with whatever value that variable is set to. For example, if you put this after the previous command (the random number), the 'out' variable would be set to whatever that number was.)
+
+- 
+
+%var% - In case you need more explaination, this is the variable that is set in the above commands. These are dynamic, meaing that the can change at any point in the code to whatever you set with the 'set' command. To use, simply put the name of the variable inbetween the % %. (NOTE: Variables are cached, not saved, meaning that the moment the cmd window is closed, these will be reset to nothing until set again.)
+
+-
+
+if/if not - This is pretty self-explanatory. This command checks to see if, or if not something is true. (note, you can add 'if not' to the end of an If statement to automatically make the Batch do something if the If statment isn't true.) This can be used to check the answer of the 'set /p' command! It is used like so:
+
+if '%ans%'=='y' [What you want the statement to do if this is true]
+
+you can also add
+
+if '%ans%'=='y' goto yes if not exit
+
+-
+
+timeout - This is the simplest way to make the Batch automatically stop. However, the lowest time is about 1 second. It is used as so:
+
+timout 1 /nobreak (< By default, you can cancel a Timout with a key press. This prevents that) >nul (< this prevents any message indicating the stop from being displayed)
+-timeout 1 /nobreak >nul
+
+The Batch will stop for 1 second without displaying anything before continuing the code.
+
+-
+
+pause - This will display the "Press any key to continue . . ." message in the Batch's cmd window, and make the code wait for a key press before continuing down. Add this to the end of your code if you want to prevent it from automatically closing (without further instructions, the Batch will close.)
+
+-
+
+exit - This can be used to manually stop the Batch and close it's cmd window at any point during the code process. Useful if your final command isn't at the bottom of the code.
+
+-
+
+(almost done) title - This changes the name of the window to whatever is followed by the command.
+
+
+And thats about it! I won't get into Powershell commands such as how to download or unzip files as that technically isn't Batch. However, if you would like to know this too, I can always tell you. Same with any questions you have.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
