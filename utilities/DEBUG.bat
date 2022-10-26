@@ -1,7 +1,6 @@
 @echo off
+title Debug Tool
 echo Starting Debug Setup.
-echo.
-echo Make sure this tool is inside your GAME folder before starting.
 echo.
 pause
 
