@@ -1,6 +1,6 @@
 @echo off
 ::Is the repo ready?
-set ready=false
+set ready=true
 ::Change 'ready' when the downloader can be used.
 
 if '%ready%'=='true' goto dwl if not goto noRepo
@@ -17,14 +17,23 @@ exit
 :dwl
 echo Attempting To Download . . .
 title Downloading . . .
-powershell -Command "Invoke-WebRequest [add link to repo] -Outfile [add file name]"
+powershell -Command "Invoke-WebRequest https://github.com/ZeroPointNothing/BatchQuest/archive/refs/heads/Content.zip -Outfile Content.zip"
 echo Done
 timeout 1 /nobreak >nul
+cls
 title Unzipping . . .
 echo Attempting To Unzip . . .
 
-powershell -Command "Expand-Archive [add file name]"
-del main.zip
+powershell -Command "Expand-Archive Content.zip"
+del Content.zip
 echo Done
-title Complete!
+timeout 1 /nobreak >nul
+cls
+echo Final Touches . . .
+title Please Wait
+rename Content BatchQuest
+timeout 1 /nobreak >nul
+cls
+echo Installation Complete.
+echo.
 pause
