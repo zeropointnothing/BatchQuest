@@ -42,9 +42,14 @@ if not exist %datLoc%\DATA\locChk goto err
 echo.
 echo Game Files found. Self check complete.
 echo Files are located at %datLoc%\DATA
+echo.
 pause
-exit
-
+echo.
+title Starting . . .
+echo Starting BatchQuest.
+timeout 2 /nobreak >nul
+cls
+call %datLoc%\DATA\phs1.bat
 
 
 
@@ -59,7 +64,7 @@ echo.
 echo -ERROR-
 echo.
 echo err_data_nf
-echo [check README.md for assistance]
+echo [check GitHub Error's Wiki Page for assistance]
 echo.
 pause
 exit
@@ -79,5 +84,40 @@ timeout 2 /nobreak >nul
 cls
 title Setup
 echo Welcome To the BatchQuest Setup!
+timeout 2 /nobreak >nul
+echo.
+echo This automated process will only happen once and is used to prepare BatchQuest's scripts for use.
+echo.
+pause
+
+timeout 1 /nobreak >nul
+echo.
+echo Please Wait . . .
+cls
+echo 1>fr
+echo Created FirstRun.
+timeout 1 /nobreak >nul
+cls
+md DATA
+Echo Created DATA Folder.
+timeout 1 /nobreak >nul
+cls
+echo Enter location of GAME folder:
+set /p dataLoc=
+echo %dataLoc%>data.loc
+
+cls
+echo Setting up DATA Folder . . .
+timeout 1 /nobreak >nul
+echo 1>%dataLoc%\DATA\locChk
+timeout 1 /nobreak >nul
+cls
+echo Moving Game Scripts . . .
+
+move "%dataLoc%\phs1.bat" "%dataLoc%\DATA\phs1.bat"
+timeout 1 /nobreak >nul
+cls
+echo Setup Complete! Re-open BatchQuest to start!
+echo.
 pause
 exit
