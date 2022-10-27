@@ -40,7 +40,11 @@ if not exist %datLoc%\DATA\locChk goto err
 :suc3
 ::TO ADD - Make BqS start main game code before closing itself.
 echo.
-echo Game Files found. Self check complete.
+echo Game Files found. Copying data.loc . . .
+timeout 1 /nobreak >nul
+copy "%datLoc%\data.loc" "%datLoc%\DATA\data.loc"
+echo SelfCheck complete.
+timeout 1 /nobreak >nul
 echo Files are located at %datLoc%\DATA
 echo.
 pause
