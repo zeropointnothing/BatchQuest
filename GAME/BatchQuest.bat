@@ -33,8 +33,8 @@ timeout 1 /nobreak >nul
 echo.
 echo Found Game Files location. Searching for files . . .
 timeout 1 /nobreak >nul
-if exist %datLoc%\DATA\locChk goto suc3
-if not exist %datLoc%\DATA\locChk goto err
+if exist %datLoc%DATA\locChk goto suc3
+if not exist %datLoc%DATA\locChk goto atpFix
 
 
 :suc3
@@ -42,10 +42,10 @@ if not exist %datLoc%\DATA\locChk goto err
 echo.
 echo Game Files found. Copying data.loc . . .
 timeout 1 /nobreak >nul
-copy "%datLoc%\data.loc" "%datLoc%\DATA\data.loc"
+copy "%datLoc%data.loc" "%datLoc%DATA\data.loc"
 echo SelfCheck complete.
 timeout 1 /nobreak >nul
-echo Files are located at %datLoc%\DATA
+echo Files are located at %datLoc%DATA
 echo.
 pause
 echo.
@@ -53,7 +53,7 @@ title Starting . . .
 echo Starting BatchQuest.
 timeout 2 /nobreak >nul
 cls
-call %datLoc%\DATA\phs1.bat
+call %datLoc%DATA\phs1.bat
 
 
 
@@ -83,7 +83,6 @@ echo.
 echo BatchQuest has not been set up. Initializing Setup Process . . .
 timeout 2 /nobreak >nul
 
-::UNFINSHED!!!
 
 cls
 title Setup
@@ -102,26 +101,58 @@ echo 1>fr
 echo Created FirstRun.
 timeout 1 /nobreak >nul
 cls
-md DATA
-Echo Created DATA Folder.
-timeout 1 /nobreak >nul
-cls
-echo Enter location of GAME folder:
-set /p dataLoc=
-echo %dataLoc%>data.loc
-
-cls
 echo Setting up DATA Folder . . .
 timeout 1 /nobreak >nul
-echo 1>%dataLoc%\DATA\locChk
+
+set dataLoc=%~dp0
+echo %dataLoc%>data.loc
+
+echo . . .
+timeout 1 /nobreak >nul
+
+echo 1>%dataLoc%DATA\locChk
 timeout 1 /nobreak >nul
 cls
-echo Moving Game Scripts . . .
+echo Checking Game Scripts . . .
 
-move "%dataLoc%\phs1.bat" "%dataLoc%\DATA\phs1.bat"
 timeout 1 /nobreak >nul
+if exist %dataLoc%DATA\phs1.bat goto compl if not goto err
+
+:compl
 cls
 echo Setup Complete! Re-open BatchQuest to start!
 echo.
 pause
+exit
+
+:atpFix
+::Will attempt to fix the data.loc file to contain the correct location.
+
+cls
+echo.
+echo ERROR: DATA folder not found. Attempting to fix . . .
+
+timeout 1 /nobreak >nul
+
+set dataLoc=%~dp0
+echo %dataLoc%>data.loc
+echo.
+echo BqS located at %dataLoc%.
+echo.
+echo Attempting to find Game Data . . .
+timeout 2 /nobreak >nul
+
+if exist %dataLoc%DATA\locChk goto atpSuc
+if not exist %dataLoc%DATA\locChk goto err
+
+:atpSuc
+
+echo.
+echo GAME DATA FOUND. RESUMING SELFCHECK
+
+timeout 1 /nobreak >nul
+
+cls
+goto suc2
+
 exit
