@@ -38,7 +38,6 @@ if not exist %datLoc%DATA\locChk goto atpFix
 
 
 :suc3
-::TO ADD - Make BqS start main game code before closing itself.
 echo.
 echo Game Files found. Copying data.loc . . .
 timeout 1 /nobreak >nul
@@ -54,12 +53,11 @@ echo Starting BatchQuest.
 timeout 2 /nobreak >nul
 cls
 call %datLoc%DATA\phs1.bat
-
+exit
 
 
 :err
-::Informs the user that an error occurred, and to refer to the README.md for assistance on how to fix.
-::TO ADD - Add "Errors" section to README.md.
+::Informs the user that an error occurred, and to refer to the GitHub Wiki for assistance on how to fix.
 cls
 color 4
 echo.
