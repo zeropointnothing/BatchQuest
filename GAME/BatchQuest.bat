@@ -20,41 +20,44 @@ if exist fr (
 
     timeout 1 /nobreak >nul
     ::looks for data.loc, which contains the directory of the DATA folder, which was inputed by the user during set up.
-    if not exist data.loc goto err
     )
 ::Sets up the game if it can't find the first run file.
 if not exist fr goto stUp
 
+if exist data.loc (
 :suc2
-::Sets the variable 'datLoc' to the location found in data.loc. This is then used to find locChk, a file create during setup to indicate if game files exist in the given location.
-echo.
-echo ...
-set /p datLoc=<data.loc
-timeout 1 /nobreak >nul
-echo.
-echo Found Game Files location. Searching for files . . .
-timeout 1 /nobreak >nul
-if exist %datLoc%DATA\locChk goto suc3
-if not exist %datLoc%DATA\locChk goto atpFix
+    ::Sets the variable 'datLoc' to the location found in data.loc. This is then used to find locChk, a file create during setup to indicate if game files exist in the given location.
+    echo.
+    echo ...
+    set /p datLoc=<data.loc
+    timeout 1 /nobreak >nul
+    echo.
+    echo Found Game Files location. Searching for files . . .
+    timeout 1 /nobreak >nul
+    if exist %datLoc%DATA\locChk (
+        :suc3
+        echo.
+        echo Game Files found. Copying data.loc . . .
+        timeout 1 /nobreak >nul
+        copy "%datLoc%data.loc" "%datLoc%DATA\data.loc"
+        echo SelfCheck complete.
+        timeout 1 /nobreak >nul
+        echo Files are located at %datLoc%DATA
+        echo.
+        pause
+        echo.
+        title Starting . . .
+        echo Starting BatchQuest.
+        timeout 2 /nobreak >nul
+        cls
+        call %datLoc%DATA\phs1.bat
+        exit
+    )
+    if not exist %datLoc%DATA\locChk goto atpFix
+    )
+if not exist data.loc goto err
 
 
-:suc3
-echo.
-echo Game Files found. Copying data.loc . . .
-timeout 1 /nobreak >nul
-copy "%datLoc%data.loc" "%datLoc%DATA\data.loc"
-echo SelfCheck complete.
-timeout 1 /nobreak >nul
-echo Files are located at %datLoc%DATA
-echo.
-pause
-echo.
-title Starting . . .
-echo Starting BatchQuest.
-timeout 2 /nobreak >nul
-cls
-call %datLoc%DATA\phs1.bat
-exit
 
 
 :err
