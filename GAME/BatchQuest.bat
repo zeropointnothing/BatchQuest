@@ -1,5 +1,7 @@
 @echo off
 
+::PLACEHOLDER
+
 title SelfCheck
 ::Checks whether or not it needs to start setup.
 echo Checking BqS . . .
