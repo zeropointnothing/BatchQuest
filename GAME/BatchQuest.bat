@@ -8,23 +8,22 @@ echo Checking BqS . . .
 
 timeout 1 /nobreak >nul
 
-if exist fr goto suc1
+if exist fr (
+    :suc1
+    echo.
+    echo Setup is Complete.
+
+    timeout 1 /nobreak >nul
+
+    echo.
+    echo Checking for Game Data . . .
+
+    timeout 1 /nobreak >nul
+    ::looks for data.loc, which contains the directory of the DATA folder, which was inputed by the user during set up.
+    if not exist data.loc goto err
+    )
+::Sets up the game if it can't find the first run file.
 if not exist fr goto stUp
-
-:suc1
-echo.
-echo Setup is Complete.
-
-timeout 1 /nobreak >nul
-
-echo.
-echo Checking for Game Data . . .
-
-timeout 1 /nobreak >nul
-::looks for data.loc, which contains the directory of the DATA folder, which was inputed by the user during set up.
-if exist data.loc goto suc2
-if not exist data.loc goto err
-
 
 :suc2
 ::Sets the variable 'datLoc' to the location found in data.loc. This is then used to find locChk, a file create during setup to indicate if game files exist in the given location.
