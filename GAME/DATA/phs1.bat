@@ -3,12 +3,12 @@
 
 
     if exist data.loc (
-
-    title BatchQuest
-    echo BatchQuest is best played in fullscreen mode.
-    echo.
-    pause
-    goto menu
+        set /p datLoc=<data.loc
+        title BatchQuest
+        echo BatchQuest is best played in fullscreen mode.
+        echo.
+        pause
+        goto menu
     )
 
 :noStUp
@@ -79,7 +79,45 @@ if '%mChs%'=='3' (
     set /p setAns=
     
     if '!setAns!'=='1' goto GitHub
-    if '!setAns!'=='2' exit
+    if '!setAns!'=='2' (
+        cls
+        echo Reseting BatchQuest . . .
+        echo -Please do not interrupt this process, as it can break your game-
+        
+        
+        del data.loc
+        timeout 1 /nobreak >nul
+        del fr
+        timeout 1 /nobreak >nul
+        del !datLoc!\DATA\data.loc
+        timeout 1 /nobreak >nul
+        del !datLoc!\DATA\locChk
+        
+
+        echo.
+        echo RESET COMPLETE.
+        echo.
+        setlocal disabledelayedexpansion
+        echo Restart BatchQuest? -y/n-
+        set /p rstAns=
+        setlocal enabledelayedexpansion
+        if /I '!rstAns!'=='y' (
+            cls
+            echo Restarting BatchQuest . . .
+            timeout 2 /nobreak >nul
+            cls
+            call !datLoc!BatchQuest.bat
+        )
+
+        if /I '!rstAns!'=='n' (
+            cls
+            echo Exiting.
+            echo Goodbye.
+            timeout 3 /nobreak >nul
+            exit
+        )
+
+    )
     if '!setAns!'=='3' goto menu
 
     cls
