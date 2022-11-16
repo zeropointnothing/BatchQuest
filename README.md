@@ -1,4 +1,4 @@
-(Please download BatchQuest using this package: [clicky](https://github.com/ZeroPointNothing/BatchBox/archive/refs/heads/main.zip))
+(Please download BatchQuest using this package: [clicky](https://github.com/ZeroPointNothing/BatchBox/archive/refs/heads/main.zip), or go to my website and get it from there.)
 
 ### Disclaimer
 Please note that at the current state, BatchQuest is in VERY early develpment. Once the story production is underway, we have no guarantee that your save data (when that is implemented) will stay intact. By playing this, you accept the following, and will cause no issues because of it.
