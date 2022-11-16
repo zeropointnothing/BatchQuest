@@ -1,3 +1,5 @@
+(Please download BatchQuest using this package: [clicky](https://github.com/ZeroPointNothing/BatchBox/archive/refs/heads/main.zip))
+
 ### Disclaimer
 Please note that at the current state, BatchQuest is in VERY early develpment. Once the story production is underway, we have no guarantee that your save data (when that is implemented) will stay intact. By playing this, you accept the following, and will cause no issues because of it.
 However, we will try our best to keep changes like this to a minimum. Although we don't reccomend playing it yet, we will not stop you, and would apprieciate any feedback you can give if you do decide to play this before the official release.
