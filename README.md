@@ -1,3 +1,8 @@
+### Disclaimer
+Please note that at the current state, BatchQuest is in VERY early develpment. Once the story production is underway, we have no guarantee that your save data (when that is implemented) will stay intact. By playing this, you accept the following, and will cause no issues because of it.
+However, we will try our best to keep changes like this to a minimum. Although we don't reccomend playing it yet, we will not stop you, and would apprieciate any feedback you can give if you do decide to play this before the official release.
+
+
 # BatchQuest
 ![GIT1](https://user-images.githubusercontent.com/116678675/197891071-a51562c0-abe4-486b-981a-de568540716c.png)
 
@@ -33,7 +38,7 @@
 
 <!-- This is what you want to read v -->
     
-# IMPORTANT!
+# !IMPORTANT!
 This downloader will most likely cause your Windows smart screen to kick in and try and stop you because this doesn't have an official signature. Click "More Info" and "Run Anyway" to stop this. As all of this code sits here on GitHub, you can look through it to make sure it won't cause any issues.
 Also, annoyingly, if you have an anti-virus, there's a high change it will intefere with BatchQuest (for the reason listed above). To prevent this, you should add it as an exception. 
 
