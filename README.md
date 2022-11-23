@@ -1,4 +1,6 @@
-<!--- MESSAGE FOR LOCAL INSTALLS: Please make sure to run BatchQuest.bat when you want to play the game. That is how it is meant to be played. 
+<!--- 
+
+MESSAGE FOR LOCAL INSTALLS: Please make sure to run BatchQuest.bat when you want to play the game. That is how it is meant to be played. 
 And as always, have fun!
 
 <3 - ZER0
