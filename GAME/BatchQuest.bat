@@ -1,7 +1,6 @@
 @echo off
 
     setlocal enabledelayedexpansion
-    ::PLACEHOLDER
     
     title SelfCheck
     ::Checks whether or not it needs to start setup.
@@ -55,7 +54,8 @@ if exist data.loc (
         echo Starting BatchQuest.
         timeout 2 /nobreak >nul
         cls
-        call !datLoc!DATA\phs1.bat
+        set canRun=True
+        call !datLoc!DATA\menu.bat
         exit
     )
     if not exist !datLoc!DATA\locChk goto atpFix
@@ -111,26 +111,28 @@ if not exist data.loc goto atpFix
     echo Setting up DATA Folder . . .
     timeout 1 /nobreak >nul
     
-    set dataLoc=%~dp0
-    echo %dataLoc%>data.loc
+    set datLoc=%~dp0
+    echo %datLoc%>data.loc
     
     echo . . .
     timeout 1 /nobreak >nul
     
-    echo 1>%dataLoc%DATA\locChk
+    echo 1>%datLoc%DATA\locChk
     timeout 1 /nobreak >nul
     cls
     echo Checking Game Scripts . . .
     
     timeout 1 /nobreak >nul
-    if exist %dataLoc%DATA\phs1.bat (
-    
-    cls
-    setlocal disabledelayedexpansion
-    echo Setup Complete. Re-open BatchQuest to start!
-    echo.
-    pause
-    exit
+    if exist %datLoc%DATA\menu.bat (
+        if exist %datLoc%DATA\script.bat (
+            cls
+            setlocal disabledelayedexpansion
+            echo Setup Complete. Re-open BatchQuest to start!
+            echo.
+            pause
+            exit
+
+        ) ELSE goto err  
     ) else goto err
 
 :atpFix
@@ -142,18 +144,18 @@ if not exist data.loc goto atpFix
     
     timeout 1 /nobreak >nul
     
-    set dataLoc=%~dp0
-    echo %dataLoc%>data.loc
+    set datLoc=%~dp0
+    echo %datLoc%>data.loc
     echo.
-    echo BqS located at %dataLoc%.
+    echo BqS located at %datLoc%.
     echo.
     echo Attempting to find Game Data . . .
     timeout 2 /nobreak >nul
     
     :lc2
-    if exist %dataLoc%DATA\locChk goto atpSuc
-    if not exist %dataLoc%DATA\locChk (
-        echo 1>%dataloc%DATA/locChk
+    if exist %datLoc%DATA\locChk goto atpSuc
+    if not exist %datLoc%DATA\locChk (
+        echo 1>%datloc%DATA/locChk
         goto lc2
     )
 
