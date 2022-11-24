@@ -1,15 +1,28 @@
 @echo off
+cd %~dp0
+set gmeLoc=%~dp0
 ::dev stuff
-set canRun=True
-set charTmp=1
-goto gameStart
+::set canRun=True
+::set charTmp=1
+::goto gameStart
 
 
 if not '%canRun%'=='True' (
     exit
     )
 setlocal disabledelayedexpansion
+if '%canLoad%'=='True' (
+    goto %ldLoc%
+)
+
 goto start
+
+:save
+cls
+echo Saving...
+call :p2
+echo %sveLoc%>%gmeLoc%SAVE\Loc.sve
+exit
 
 ::----PREDETERMINED ACTIONS (USE call :[action] TO USE)----
 :p1
@@ -31,6 +44,11 @@ goto start
         echo Did you seriously think I'd hide something in the pause action? Well, you'd be right ^>:\
         pause
     )
+
+    if '%dummyvar%'=='exit' (
+        goto save
+    )
+    set dummyvar=0
     goto :eof
 ::--------
 
@@ -76,7 +94,6 @@ goto chsChar
 
 
 :gameStart
-::Story begins here.
 setlocal disabledelayedexpansion
 echo -DISCLAIMER-
 echo.
@@ -91,6 +108,9 @@ echo THIS IS YOUR FINAL WARNING
 pause
 cls
 
+::Story begins here.
+echo {type exit at any pause point to save the game and close it.}
+echo.
 echo "Arel!!"
 echo.
 echo [I look up from the notebook I was writing in to see my colleague rushing towards me. I close it.]
@@ -105,7 +125,11 @@ echo [A girl with short, dark redish hair burst into my tent, out of breath.]
 echo.
 echo "Arel... You... Won't believe what I just found..."
 :c1p1
-
+set sveLoc=c1p1
+echo.
+echo --CHAPTER ONE: A World Worth Saving--
+echo.
+call :pause
 
 pause
 exit

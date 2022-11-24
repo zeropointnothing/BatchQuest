@@ -1,5 +1,5 @@
 @echo off
-
+::set canRun=True
     if not '%canRun%'=='True' (
         echo Hey! You shouldn't run the script file directly! Please use the BatchQuest.bat file instead!
         echo.
@@ -67,11 +67,26 @@ if '%mChs%'=='1' (
     goto nwGame
 )
 
+setlocal enabledelayedexpansion
 if '%mChs%'=='2' (
     :ldGame
     echo.
-    echo This feature has not been developed yet. . .
-    pause
+    set gmeLoc=%~dp0
+    echo Searching for game save...
+    timeout 2 /nobreak >nul
+    if exist !gmeLoc!SAVE\Loc.sve (
+        echo Save Data found. Loading...
+        timeout 1 /nobreak >nul
+        set /p ldLoc=<!gmeLoc!SAVE\Loc.sve
+        set canLoad=True
+        cls
+        call !gmeLoc!script.bat
+    ) ELSE (
+        echo Unable to find save data. Please verify that it exists or start a new game.
+        echo.
+        pause
+        goto menu
+    )
     goto menu
 )
 
@@ -99,6 +114,7 @@ if '%mChs%'=='3' (
         del !datLoc!\DATA\data.loc
         timeout 1 /nobreak >nul
         del !datLoc!\DATA\locChk
+        @RD /S /Q "!datLoc!DATA\SAVE"
         
 
         echo.

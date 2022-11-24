@@ -113,6 +113,7 @@ if not exist data.loc goto atpFix
     
     set datLoc=%~dp0
     echo %datLoc%>data.loc
+    md %datLoc%DATA\SAVE
     
     echo . . .
     timeout 1 /nobreak >nul
