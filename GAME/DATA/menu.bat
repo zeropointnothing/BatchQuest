@@ -61,7 +61,17 @@ if '%mChs%'=='1' (
     echo Are you sure? Starting a new game will erase any existing save data.
     set /p nwgAns=
     
-    if '!nwgAns!'=='y' goto gameStart
+    if '!nwgAns!'=='y' (
+        set gmeLoc=%~dp0
+        if exist !gmeLoc!SAVE\Loc.sve (
+            del !gmeLoc!SAVE\Loc.sve
+        )
+        if exist !gmeLoc!SAVE\char.sve (
+            del !gmeLoc!SAVE\char.sve
+        )
+    cls
+    goto gameStart
+    )
     if '!nwgAns!'=='n' goto menu
     cls
     goto nwGame
@@ -77,7 +87,9 @@ if '%mChs%'=='2' (
     if exist !gmeLoc!SAVE\Loc.sve (
         echo Save Data found. Loading...
         timeout 1 /nobreak >nul
+        ::Loads data from specific files:
         set /p ldLoc=<!gmeLoc!SAVE\Loc.sve
+        set /p char=<!gmeLoc!SAVE\char.sve
         set canLoad=True
         cls
         call !gmeLoc!script.bat
