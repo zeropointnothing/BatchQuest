@@ -69,6 +69,9 @@ if '%mChs%'=='1' (
         if exist !gmeLoc!SAVE\char.sve (
             del !gmeLoc!SAVE\char.sve
         )
+        if exist !gmeLoc!SAVE\ina.rep (
+            del !gmeLoc!SAVE\ina.rep
+        )
     cls
     goto gameStart
     )
@@ -90,6 +93,7 @@ if '%mChs%'=='2' (
         ::Loads data from specific files:
         set /p ldLoc=<!gmeLoc!SAVE\Loc.sve
         set /p char=<!gmeLoc!SAVE\char.sve
+        set /p InaRep=<!gmeLoc!SAVE\ina.rep
         set canLoad=True
         cls
         call !gmeLoc!script.bat

@@ -17,7 +17,7 @@ if '%canLoad%'=='True' (
 
 goto start
 
-::----PREDETERMINED ACTIONS (USE call :[action] TO USE)----
+
 :save
 cls
 echo Saving...
@@ -30,7 +30,10 @@ if '%sveLoc%'=='' (
 ::Saves data::
 echo %sveLoc%>%gmeLoc%SAVE\Loc.sve
 echo %char%>%gmeLoc%SAVE\char.sve
+echo !InaRep!>%gmeLoc%SAVE\ina.rep
 exit
+
+::----PREDETERMINED ACTIONS (USE call :[action] TO USE)----
 
 :p1
     timeout 1 /nobreak >nul
@@ -53,9 +56,11 @@ exit
     )
 
     if '%dummyvar%'=='exit' (
+        setlocal enabledelayedexpansion
         goto save
     )
     set dummyvar=0
+    echo.
     goto :eof
 ::--------
 
@@ -135,6 +140,7 @@ echo.
 echo "Arel... You... Won't believe what I just found..."
 :c1p1
 set sveLoc=c1p1
+set InaRep=10
 echo.
 echo --CHAPTER ONE: A World Worth Saving--
 call :pause
@@ -150,7 +156,7 @@ call :pause
 echo.
 echo I follow the woman, who seemed strangely excited about whatever she wanted to show me.
 echo This woman was Inari Riki, one of the more favorable people I had worked with before.
-call :p1
+call :p2
 echo.
 echo "Inari? What's got you in such an excited mood?" I asked.
 :c1p2
@@ -160,7 +166,52 @@ echo "Huh?" She looked back at me. "Well... You'll see!"
 echo.
 echo When people say "you'll see", it doesn't normally end well. But I'll give her the benefit of the doubt.
 call :pause
+echo.
+echo "Okay..."
+echo.
+echo "Hurry up, slowpoke!"
+echo.
+echo "Hey!" I continued chasing after her until we reached her tent.
+call :pause
+echo.
+echo "Okay... Show me."
+echo.
+echo "One sec!" She rushed inside and after a minute, she came back out holding a small black orb.
+call :p2
+echo.
+echo "Uhh... What is that?"
+echo.
+echo "What do you mean, what is that?"
+echo.
+echo "I mean, what are you holding? I honestly have no idea."
+call :pause
+echo.
+echo "Well, it's obviously a... Um..."
+echo.
+echo "You forgot, didn't you?"
+echo.
+echo "No I didn't!! I just, um... A-anyway!"
+echo.
+echo She defintely forgot. "Well?"
+call :p3
+echo.
+:c1p3
+set sveLoc=c1p3
+echo "...Right!!" Inari set it down and grabbed her laptop.
+call :pause
+echo.
+echo "Okay, so I've been doing a lot of reasearch on the stuff we found a few days ago and-"
+echo.
+echo "Inari," I interrupted. "Why are you still using that thing?"
+echo.
+echo "H-huh?"
+echo.
+echo "That laptop... Isn't it like... 20 years old or something?"
+echo.
+echo "W-well, yes... But it still works!"
+echo.
+echo "How..."
 
 
-pause
+call :pause
 exit
