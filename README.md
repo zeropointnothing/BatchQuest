@@ -7,10 +7,15 @@ And as always, have fun!
 
 --->
 
-
-
+## please read the following wiki
+https://github.com/ZeroPointNothing/BatchQuest/wiki/AntiVirus-Powershell-Bug
 
 ### -DISCLAIMER-
+BatchQuest needs to modify files to function correctly. Sometimes, anti virus's will flag this as suspicious. This is a false flag, and BatchQuest is not actually doing anything harmful to your computer. To play it properly, please add the folder it lives in as an exception.
+
+Batch Quest will never create, modify, or delete any files outside of its folder.
+
+
 This project is no longer under Project SOLIAS. It is now a solo project I will work on myself. Please bear with me on the speed of the story production because of this.  -  BatchQuest is currently early in development. Please do not expect any features to stay, or anything to be complete.
 
 
