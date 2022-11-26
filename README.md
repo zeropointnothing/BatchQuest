@@ -7,17 +7,6 @@ And as always, have fun!
 
 --->
 
-### ===PLEASE READ===
-[THERE IS A KNOWN BUG THAT CAUSES CERTAIN ANTI-VIRUS TO BREAK POWERSHELL]
-If you have an anti-virus, I recommend following the instructions on the following Wiki Page [here](https://github.com/ZeroPointNothing/BatchQuest/wiki/AntiVirus-Powershell-Bug). Until then, I do not recommend letting BQ update automatically.
-
-
-BatchQuest uses Batch to do what it does. It also creates, deletes, and modifies a lot of its own files in order to work correctly. Because of this, it may look malicious to an anti-virus. I promise you that it is not, and you can see all the code here to prove it.
-
-To prevent any issues while playing, please add the BatchQuest folder as an exception.
-
-BatchQuest will never make, delete, or modify files outside of this folder.
-
 
 
 

@@ -1,5 +1,8 @@
 @echo off
 
+
+    if exist noupdate.txt goto BqS
+    
     setlocal enabledelayedexpansion
     echo Checking For Updates...
     powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/ZeroPointNothing/BatchQuest/Content/GAME/version.md -Outfile tmp.txt"
@@ -23,9 +26,10 @@
 
 
     
-    title SelfCheck
+    
     ::Checks whether or not it needs to start setup.
     :BqS
+    title SelfCheck
     echo Checking BqS . . .
     
     timeout 1 /nobreak >nul
