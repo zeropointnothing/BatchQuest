@@ -1,6 +1,27 @@
 @echo off
 
     setlocal enabledelayedexpansion
+    echo Checking For Updates...
+    powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/ZeroPointNothing/BatchQuest/Content/GAME/version.md -Outfile tmp.txt"
+    set /p curVersion=<version.md
+    set /p version=<tmp.txt
+
+    if not '!curVersion!'=='!version!' (
+        echo Update Available!
+        del tmp.txt
+        pause
+        echo Starting Update...
+        start "" updater.bat
+        exit
+    ) else (
+        echo No updates found.
+        del tmp.txt
+        pause
+    )
+
+
+
+
     
     title SelfCheck
     ::Checks whether or not it needs to start setup.
