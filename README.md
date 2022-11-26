@@ -7,6 +7,13 @@ And as always, have fun!
 
 --->
 
+### ===PLEASE READ===
+BatchQuest uses Batch to do what it does. It also creates, deletes, and modifies a lot of its own files in order to work correctly. Because of this, it may look malicious to an anti-virus. I promise you that it is not, and you can see all the code here to prove it.
+
+To prevent any issues while playing, please add the BatchQuest folder as an exception.
+
+BatchQuest will never make, delete, or modify files outside of this folder.
+
 
 
 
