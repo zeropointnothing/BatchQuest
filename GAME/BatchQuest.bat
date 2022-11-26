@@ -26,6 +26,8 @@
     title SelfCheck
     ::Checks whether or not it needs to start setup.
     :BqS
+    echo Hi. :D this is a test.
+    pause
     echo Checking BqS . . .
     
     timeout 1 /nobreak >nul
