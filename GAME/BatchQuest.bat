@@ -18,7 +18,7 @@
         del tmp.txt
         pause
     )
-
+    cls
 
 
 
