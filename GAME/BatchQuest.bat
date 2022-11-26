@@ -22,13 +22,14 @@
         pause
     )
     cls
-
+    setlocal disabledelayedexpansion
 
 
     
     
     ::Checks whether or not it needs to start setup.
     :BqS
+    setlocal enabledelayedexpansion
     title SelfCheck
     echo Checking BqS . . .
     
