@@ -7,10 +7,13 @@ And as always, have fun!
 
 --->
 
+
 ## please read the following wiki
 https://github.com/ZeroPointNothing/BatchQuest/wiki/AntiVirus-Powershell-Bug
 
 ### -DISCLAIMER-
+If you have downloaded BatchQuest from the GitHub directly, your windows Smart Screen will probably stop the files from opening the first time. If this happens, click "more info" and "run anyway". This message appears because Batch files are not usually used for this.
+
 BatchQuest needs to modify files to function correctly. Sometimes, anti virus's will flag this as suspicious. This is a false flag, and BatchQuest is not actually doing anything harmful to your computer. To play it properly, please add the folder it lives in as an exception.
 
 Batch Quest will never create, modify, or delete any files outside of its folder.
@@ -27,4 +30,3 @@ A series of Batch Files that make a story game.
 *Will you delve deep into the depths of Arcallis and find the hidden truths within?*
 
 ![GIT1](https://user-images.githubusercontent.com/116678675/197891071-a51562c0-abe4-486b-981a-de568540716c.png)
-
