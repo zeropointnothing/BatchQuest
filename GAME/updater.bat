@@ -28,3 +28,11 @@ rename "script.temp" "script.bat"
 timeout 2 /nobreak >nul
 move "menu.bat" "%loc%DATA\menu.bat"
 move "script.bat" "%loc%DATA\script.bat"
+
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/ZeroPointNothing/BatchQuest/Content/GAME/version.md -Outfile version.temp"
+del version.md
+rename "version.temp" "version.md"
+echo Update Complete!
+echo.
+pause
+exit

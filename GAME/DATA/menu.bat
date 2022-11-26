@@ -10,7 +10,7 @@
 
     if exist data.loc (
         set /p datLoc=<data.loc
-        title BatchQuest
+        title BatchQuest - Version %version%
         echo BatchQuest is best played in fullscreen mode.
         echo.
         pause

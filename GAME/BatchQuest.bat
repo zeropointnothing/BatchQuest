@@ -76,6 +76,7 @@ if exist data.loc (
         timeout 2 /nobreak >nul
         cls
         set canRun=True
+        set /p version=<version.md
         call !datLoc!DATA\menu.bat
         exit
     )
