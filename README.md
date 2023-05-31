@@ -12,6 +12,8 @@ And as always, have fun!
 https://github.com/ZeroPointNothing/BatchQuest/wiki/AntiVirus-Powershell-Bug
 
 ### -DISCLAIMER-
+This project has been discontinued. (Batch is not a good coding language lmao) but for those of you who still want to see what we have right now:
+
 If you have downloaded BatchQuest from the GitHub directly, your windows Smart Screen will probably stop the files from opening the first time. If this happens, click "more info" and "run anyway". This message appears because Batch files are not usually used for this.
 
 BatchQuest needs to modify files to function correctly. Sometimes, anti virus's will flag this as suspicious. This is a false flag, and BatchQuest is not actually doing anything harmful to your computer. To play it properly, please add the folder it lives in as an exception.
